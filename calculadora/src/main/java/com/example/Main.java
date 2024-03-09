@@ -7,6 +7,7 @@ public class Main {
 
         do {
 
+            System.out.println("");
             System.out.println("CUENTA");
             System.out.println("");
             System.out.println("1. Registrarse");
@@ -16,6 +17,7 @@ public class Main {
             System.out.print("Elige una opcion: ");
 
             int eleccion = io.leerInt();
+            System.out.println("");
 
             if (eleccion == 1) {
 
@@ -23,13 +25,13 @@ public class Main {
 
             } else if (eleccion == 2) {
 
-                boolean login = true;
-
-                calculadora.login(login);
+                boolean logincorrecto = calculadora.login();
 
                 boolean salir = false;
 
-                if (login == true) {
+                if (logincorrecto == true) {
+                    
+                    String username = calculadora.usuarioactual();
 
                     do {
 
@@ -48,55 +50,35 @@ public class Main {
                         System.out.print("Elige una opcion: ");
 
                         int eleccion2 = io.leerInt();
+                        System.out.println("");
 
                         if (eleccion2 == 1) {
-
-                            calculadora.suma();
-
+                            calculadora.suma(username);
                         } else if (eleccion2 == 2) {
-
-                            calculadora.resta();
-
+                            calculadora.resta(username);
                         } else if (eleccion2 == 3) {
-
-                            calculadora.multiplicacion();
-
+                            calculadora.multiplicacion(username);
                         } else if (eleccion2 == 4) {
-
-                            calculadora.division();
-
+                            calculadora.division(username);
                         } else if (eleccion2 == 5) {
-
-                            calculadora.potencia();
-
+                            calculadora.potencia(username);
                         } else if (eleccion2 == 6) {
-
-                            calculadora.raizCuadrada();
-
+                            calculadora.raizCuadrada(username);
                         } else if (eleccion2 == 7) {
-
                             salir = true;
-
                         } else if (eleccion2 == 8) {
-
                             System.out.println("Has salido del programa.");
                             System.exit(0);
-
                         } else {
                             System.out.println("Opcion no valida");
                         }
 
                     } while (salir == false);
-
-                } else {
-                    System.out.println("Usuario o contraseña incorrectos");
                 }
 
             } else if (eleccion == 3) {
-
                 System.out.println("Has salido del programa.");
                 ejecucion = false;
-
             }
 
             else {
